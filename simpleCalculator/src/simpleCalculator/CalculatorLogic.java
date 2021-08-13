@@ -14,6 +14,29 @@ public class CalculatorLogic implements ActionListener {
 		this.element = element;
 	}
 	
+	public boolean checkforOperation(char opSym) {
+		int marker = 0;
+		boolean operateFound = false;
+		String word = element.getTextField();
+		char[] charArray = word.toCharArray();
+		
+		for (int i = 0; i < element.getTextFieldLength(); i++) {
+			if (charArray[i] == 'x' || charArray[i] == '/' || charArray[i] == '+' || charArray[i] == '-') {
+				operateFound = true;
+				break;
+			}
+			marker++;
+		}
+		
+		if (operateFound) {
+			element.setSpecTextField(marker, opSym);
+		}
+		
+		return operateFound;
+	}
+	
+	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -53,17 +76,33 @@ public class CalculatorLogic implements ActionListener {
 				element.setTextField("0");
 				break;
 			case "x":
-				element.setTextField("x");
-				break;
+				if (checkforOperation('x')) {
+					break;
+				} else {
+					element.setTextField("x");
+					break;
+				}
 			case "/":
-				element.setTextField("/");
-				break;
+				if (checkforOperation('/')) {
+					break;
+				} else {
+					element.setTextField("/");
+					break;
+				}
 			case "+":
-				element.setTextField("+");
-				break;
+				if (checkforOperation('+')) {
+					break;
+				} else {
+					element.setTextField("+");
+					break;
+				}
 			case "-":
-				element.setTextField("-");
-				break;
+				if (checkforOperation('-')) {
+					break;
+				} else {
+					element.setTextField("-");
+					break;
+				}
 			case "=":
 				// To-do: make method for reading text field correctly and making final calculations
 				

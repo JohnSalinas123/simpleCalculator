@@ -187,7 +187,7 @@ public class ElementLayout {
 		frame.pack();
 		frame.setSize(400,450);
 		frame.setVisible(true);
-		frame.setResizable(true);
+		frame.setResizable(false);
 		
 		
 		
@@ -208,6 +208,29 @@ public class ElementLayout {
 			text.setText(text.getText() + symbol);
 		}
 		
+	}
+	
+	// Replace specific letter in text field with a certain char
+	public void setSpecTextField(int num, char letter) {
+		String word = text.getText();
+		char[] charArray = word.toCharArray();
+		
+		charArray[num] = letter;
+		String replacedOp = String.valueOf(charArray);
+		text.setText(replacedOp);
+		
+	}
+	
+	// Get the length of the text field
+	public int getTextFieldLength() {
+		String field = text.getText();
+		return field.length();
+	}
+	
+	// return the string in text field
+	public String getTextField() {
+		String field = text.getText();
+		return field;
 	}
 	
 
