@@ -45,8 +45,23 @@ public class ElementLayout {
 	public ElementLayout() {
 		CalculatorLogic c = new CalculatorLogic(this);
 		btn1.addActionListener(c);
-		//btn2.addActionListener(new CalculatorLogic());
+		btn2.addActionListener(c);
+		btn3.addActionListener(c);
+		btn4.addActionListener(c);
+		btn5.addActionListener(c);
+		btn6.addActionListener(c);
+		btn7.addActionListener(c);
+		btn8.addActionListener(c);
+		btn9.addActionListener(c);
+		btn0.addActionListener(c);
 		
+		btnMult.addActionListener(c);
+		btnDiv.addActionListener(c);
+		btnAdd.addActionListener(c);
+		btnSub.addActionListener(c);
+		btnEqu.addActionListener(c);
+		btnClear.addActionListener(c);
+		btnDot.addActionListener(c);
 		
 		Border box = BorderFactory.createLineBorder(Color.black,1);
 		label.setBorder(box);
@@ -180,11 +195,16 @@ public class ElementLayout {
 	}
 	
 	public void setTextField(String symbol) {
+		// To-do: make method that reads text field and checks if their is an operation symbol already
+	
 		String field = text.getText();
-		if (field.equals("0")) {
+		if (field.equals("0") && symbol != "AC" && symbol != "x" && symbol != "/" && symbol != "+" && symbol != "-" && symbol != ".") {
 			text.setText(symbol);
 		}
-		else {
+		else if (symbol == "AC") {
+			text.setText("0");
+		}
+		else if (field.equals("0") == false){
 			text.setText(text.getText() + symbol);
 		}
 		
