@@ -2,6 +2,7 @@ package simpleCalculator;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -18,10 +19,9 @@ public class ElementLayout {
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	JLabel label = new JLabel("Label testing testing");
-	JTextField text = new JTextField();
+	JTextField text = new JTextField("0");
 	
-	
-	
+	CalculatorLogic logic;
 	
 	JButton btn9 = new JButton("9");
 	JButton btn8 = new JButton("8");
@@ -43,9 +43,17 @@ public class ElementLayout {
 	JButton btnDot = new JButton(".");  
 	
 	public ElementLayout() {
+		CalculatorLogic c = new CalculatorLogic(this);
+		btn1.addActionListener(c);
+		//btn2.addActionListener(new CalculatorLogic());
+		
+		
 		Border box = BorderFactory.createLineBorder(Color.black,1);
 		label.setBorder(box);
 		
+		Font font = new Font("SansSerif", Font.BOLD, 25);
+		text.setFont(font);
+		text.setHorizontalAlignment(JTextField.RIGHT);
 		text.setEditable(false);
 		text.setPreferredSize(new Dimension(GridBagConstraints.HORIZONTAL,60));
 		text.setBorder(box);
@@ -168,6 +176,17 @@ public class ElementLayout {
 		
 		
 		
+		
+	}
+	
+	public void setTextField(String symbol) {
+		String field = text.getText();
+		if (field.equals("0")) {
+			text.setText(symbol);
+		}
+		else {
+			text.setText(text.getText() + symbol);
+		}
 		
 	}
 	
