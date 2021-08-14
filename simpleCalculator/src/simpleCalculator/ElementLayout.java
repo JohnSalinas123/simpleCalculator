@@ -210,6 +210,10 @@ public class ElementLayout {
 		
 	}
 	
+	public void setTextField(String result, boolean calcSwitch) {
+		text.setText(result);	
+	}
+	
 	// Replace specific letter in text field with a certain char
 	public void setSpecTextField(int num, char letter) {
 		String word = text.getText();
