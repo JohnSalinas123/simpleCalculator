@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 public class ElementLayout {
-	JFrame frame = new JFrame();
+	JFrame frame = new JFrame("Simple name change");
 	JPanel panel = new JPanel();
 	JLabel label = new JLabel("Label testing testing");
 	JTextField text = new JTextField("0");
